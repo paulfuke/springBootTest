@@ -7,6 +7,7 @@
     <groupId>com.fuke</groupId>
     <artifactId>FirstBootDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
     <!--父pop-->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -22,6 +23,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
@@ -34,8 +40,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 <build>
+    <finalName>FirstBootDemo</finalName>
     <plugins>
         <plugin>
             <groupId>org.springframework.boot</groupId>

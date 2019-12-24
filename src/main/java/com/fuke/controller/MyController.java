@@ -1,6 +1,10 @@
 package com.fuke.controller;
 
+import com.fuke.domain.JsonResult;
+import com.fuke.domain.MyException;
+import com.fuke.domain.TestConfig;
 import com.fuke.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,5 +39,22 @@ public class MyController {
         user.setUsername("张三");
         user.setBirthday(new Date());
         return user;
+    }
+    @Autowired
+    private TestConfig testConfig;
+    @GetMapping("/myTest")
+    public TestConfig test(){
+
+        return testConfig;
+    }
+
+    @RequestMapping("/exceptionTest")
+    public void exceptionTest(){
+        throw new MyException(300,"出错");
+    }
+
+    @GetMapping("/bootTest")
+    public JsonResult bootTest(){
+        return new JsonResult(true,"测试成功");
     }
 }
